@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include nextoor *.css
+recursive-include nextoor *.csv
+recursive-include nextoor *.html
+recursive-include nextoor *.ico
+recursive-include nextoor *.js
+recursive-include nextoor *.json
+recursive-include nextoor *.md
+recursive-include nextoor *.png
+recursive-include nextoor *.py
+recursive-include nextoor *.svg
+recursive-include nextoor *.txt
+recursive-exclude nextoor *.pyc
