@@ -34,6 +34,9 @@ def sales_invoice_on_submit(sinv):
 
 def post(endpoint, payload):
 	config = frappe.get_doc('Debitoor Settings')
+
+	if not (config.url and config.api_key):
+		return
 	
 	headers = {
 	    'content-type': 'application/json',
