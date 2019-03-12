@@ -1,6 +1,6 @@
 ## Nextoor
 
-[ERPNext](erpnext.org) App to connect with [Debitoor](debitoor.com).
+[ERPNext](https://erpnext.org) App to connect with [Debitoor](https://debitoor.com).
 
 ## Install
 
