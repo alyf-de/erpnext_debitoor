@@ -6,6 +6,7 @@ from frappe import msgprint
 
 
 def sales_invoice_on_submit(sinv):
+	""" Construct Sales Invoice payload and post to Debitoor """
 	payload = {
 		'number': sinv.name,
 		'date': sinv.posting_date.isoformat(),
@@ -35,6 +36,7 @@ def sales_invoice_on_submit(sinv):
 
 
 def purchase_invoice_on_submit(pinv):
+	""" Construct Purchase Invoice payload and post to Debitoor """
 	payload = {
 		'number': pinv.name,
 		'date': pinv.posting_date.isoformat(),
@@ -55,6 +57,7 @@ def purchase_invoice_on_submit(pinv):
 
 
 def post(endpoint, payload):
+	""" Get credentials and post payload to Debitoor endpoint """
 	config = frappe.get_doc('Debitoor Settings')
 
 	if not (config.url and config.api_key):
@@ -72,12 +75,13 @@ def post(endpoint, payload):
 
 
 def test():
-	# import datetime
-	# test_records = frappe.get_test_records('Sales Invoice')
-	# sinv = frappe.get_doc(test_records[1])
-	# sinv.posting_date = datetime.date.today()
-	# sinv.due_date = sinv.posting_date + datetime.timedelta(days=14)
-	# sinv.discountRate = 0
+	""" 
+	Helper to quickly test on live-system 
+	
+	~/frappe-bench$ bench console
+	In [1]:  from nextoor.api import test
+	In [2]:  test()
+	"""
 	first_sinv = frappe.get_list('Sales Invoice')[0].name
 	sinv = frappe.get_doc('Sales Invoice', first_sinv)
 	sales_invoice_on_submit(sinv)
