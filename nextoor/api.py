@@ -5,12 +5,12 @@ import frappe
 from frappe import msgprint
 
 
-def sales_invoice_on_submit(sinv):
+def sales_invoice_on_submit(sinv, event):
 	""" Construct Sales Invoice payload and post to Debitoor """
 	payload = {
 		'number': sinv.name,
-		'date': sinv.posting_date.isoformat(),
-		'dueDate': sinv.due_date.isoformat(),
+		'date': sinv.posting_date, #.isoformat(),
+		'dueDate': sinv.due_date, #.isoformat(),
 		'notes': sinv.terms,
 		'additionalNotes': "",
 		'customerName': sinv.customer,
@@ -35,11 +35,11 @@ def sales_invoice_on_submit(sinv):
 	post('/api/sales/draftinvoices/v3', payload)
 
 
-def purchase_invoice_on_submit(pinv):
+def purchase_invoice_on_submit(pinv, event):
 	""" Construct Purchase Invoice payload and post to Debitoor """
 	payload = {
 		'number': pinv.name,
-		'date': pinv.posting_date.isoformat(),
+		'date': pinv.posting_date, #.isoformat(),
 		'supplierName': pinv.supplier,
 		'supplierAddress': pinv.address_display,
 		'supplierCiNumber': pinv.tax_id,
