@@ -22,6 +22,29 @@ Now, when you submit a new `Sales Invoice` or `Purchase Invoice`, it will be syn
 * Tax rate is fixed to the first line in table of `taxes`
 * Address and note get filled with HTML instead of plain text.
 
+## Todo
+
+In `Debitoor Settings`
+
+Fields:
+
+`Check` Sync Payments from Debitoor (Daily, consider last 30 days)
+
+Buttons:
+
+* Export to Debitoor
+
+  * Customers
+  * Suppliers
+  * Items
+
+* Import from Debitoor
+
+  * Customers
+  * Suppliers
+  * Products
+
+
 #### License
 
 Copyright (C) 2019 Raffael Meyer raffael@alyf.de
