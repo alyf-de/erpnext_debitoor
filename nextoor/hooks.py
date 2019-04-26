@@ -89,10 +89,10 @@ app_license = "GPL"
 
 doc_events = {
 	"Sales Invoice" : {
-		"on_submit": "nextoor.api.sales_invoice_on_submit"
+		"on_submit": "nextoor.nextoor.hooks.sales_invoice_on_submit"
 	},
 	"Purchase Invoice" : {
-		"on_submit": "nextoor.api.purchase_invoice_on_submit"
+		"on_submit": "nextoor.nextoor.hooks.purchase_invoice_on_submit"
 	}
 }
 
