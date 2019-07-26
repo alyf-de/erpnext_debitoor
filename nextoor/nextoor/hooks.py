@@ -36,7 +36,7 @@ def get_sales_invoice_payload(sinv):
             'unitNetPrice': item.rate,
             'description': item.description,
             'taxEnabled': True,
-            'taxRate': sinv.taxes[0].rate
+            'taxRate': sinv.taxes[0].rate if sinv.taxes else 0
         })
     return payload
 
@@ -55,7 +55,7 @@ def get_purchase_invoice_payload(pinv):
         payload['lines'].append({
             'netAmount': item.amount,
             'description': item.description,
-            'taxRate': pinv.taxes[0].rate
+            'taxRate': pinv.taxes[0].rate if pinv.taxes else 0
         })
 
     return payload
