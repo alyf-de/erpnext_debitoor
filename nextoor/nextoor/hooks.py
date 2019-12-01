@@ -1,3 +1,5 @@
+# coding: utf-8
+import frappe
 from nextoor.nextoor.api import post
 
 
