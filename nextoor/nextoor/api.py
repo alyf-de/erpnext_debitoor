@@ -29,7 +29,7 @@ def post(endpoint, payload):
 		except ValueError:
 			pass
 
-		msgprint("Text:\n{}\nMessage:\n{}\nCode:\n{}".format(r.text, msg, code))
+		msgprint("Code: {}<br>Message: {}".format(msg, code))
 
 
 def test():
