@@ -33,7 +33,7 @@ def get_sales_invoice_payload(sinv):
     }
 
     company_currency = frappe.get_value("Company", sinv.company, "default_currency")
-    if sinv.currency is not company_currency:
+    if sinv.currency != company_currency:
         payload['currencyRate'] = sinv.conversion_rate
 
     for item in sinv.items:
