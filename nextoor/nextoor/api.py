@@ -20,7 +20,7 @@ def post(endpoint, payload):
 	r = requests.post(config.url + endpoint,
 					  data=json.dumps(payload), headers=headers)
 	if r.raise_for_status():
-		msgprint(r.text)
+		msgprint("Text:\n{}\nMessage:\n{}\nCode:\n{}".format(r.get("text"), r.get("message"), r.get("code")))
 
 
 def test():
