@@ -19,8 +19,17 @@ def post(endpoint, payload):
 
 	r = requests.post(config.url + endpoint,
 					  data=json.dumps(payload), headers=headers)
-	if r.raise_for_status():
-		msgprint(r.text)
+
+	try:
+		r.raise_for_status()
+	except requests.HTTPError as e:
+		try:
+			msg = r.json().get("message")
+			code = r.json().get("code")
+		except ValueError:
+			pass
+
+		msgprint("<b>Debitoor</b><br>Code: {}<br>Message: {}".format(msg, code))
 
 
 def test():
