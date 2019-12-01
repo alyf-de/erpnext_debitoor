@@ -29,9 +29,12 @@ def get_sales_invoice_payload(sinv):
         'paymentTermsId': 3,
         'lines': [],
         'discountRate': sinv.additional_discount_percentage,
-        'currency': sinv.currency,
-        'currencyRate': sinv.conversion_rate
+        'currency': sinv.currency
     }
+
+    company_currency = frappe.get_value("Company", sinv.company, "default_currency")
+    if sinv.currency is not company_currency:
+        payload['currencyRate'] = sinv.conversion_rate
 
     for item in sinv.items:
         payload['lines'].append({
@@ -42,6 +45,7 @@ def get_sales_invoice_payload(sinv):
             'taxEnabled': True,
             'taxRate': sinv.taxes[0].rate if sinv.taxes else 0
         })
+
     return payload
 
 
