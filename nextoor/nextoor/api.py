@@ -29,7 +29,7 @@ def post(endpoint, payload):
 		except ValueError:
 			pass
 
-		msgprint("Code: {}<br>Message: {}".format(msg, code))
+		msgprint("<b>Debitoor</b><br>Code: {}<br>Message: {}".format(msg, code))
 
 
 def test():
