@@ -14,7 +14,7 @@ def post(endpoint, payload):
 
 	headers = {
 		'content-type': 'application/json',
-		'Authorization': 'Bearer ' + config.api_key
+		'Authorization': f'Bearer {config.api_key}',
 	}
 
 	r = requests.post(config.url + endpoint,
@@ -29,7 +29,7 @@ def post(endpoint, payload):
 		except ValueError:
 			pass
 
-		msgprint("<b>Debitoor</b><br>Code: {}<br>Message: {}".format(msg, code))
+		msgprint(f"<b>Debitoor</b><br>Code: {msg}<br>Message: {code}")
 
 
 def test():
